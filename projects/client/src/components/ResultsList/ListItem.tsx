@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import styles from './ListItem.module.css';
+import { Button } from '@guardian/threads';
+import { FaGlobeAfrica, FaEdit } from 'react-icons/fa';
 
 type ListItemProps = {
 	result: Result;
@@ -16,6 +18,7 @@ type Fields = {
 	byline: string;
 	trailText: string;
 	newspaperPageNumber: number;
+	internalComposerCode: string;
 };
 
 type TypeData = {
@@ -67,14 +70,32 @@ export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
 					<div>No Image</div>
 				)}
 			</div>
-			<div>
-				<h3>{result.fields.headline}</h3>
-				<h4>{result.fields.byline}</h4>
-				<div
-					dangerouslySetInnerHTML={{
-						__html: result.fields.trailText as string,
-					}}
-				/>
+			<div className={styles.sideInfo}>
+				<div>
+					<h3>{result.fields.headline}</h3>
+					<h4>{result.fields.byline}</h4>
+					<div
+						dangerouslySetInnerHTML={{
+							__html: result.fields.trailText as string,
+						}}
+					/>
+				</div>
+				<div className={styles.buttons}>
+					<Button
+						href={`https://www.theguardian.com/${result.id}`}
+						title={'visit'}
+						icon={<FaGlobeAfrica />}
+					>
+						View
+					</Button>
+					<Button
+						href={`https://composer.gutools.co.uk/content/${result.fields.internalComposerCode}`}
+						title={'visit'}
+						icon={<FaEdit />}
+					>
+						Edit
+					</Button>
+				</div>
 			</div>
 		</div>
 	);

@@ -22,7 +22,18 @@
 	background: var(--color-secondary-dark);
 }
 
-.link {
-	text-decoration: none;
-	color: teal;
+.slideInfo {
+	display: flex;
+	direction: column;
+	justify-content: space-between;
+}
+
+.buttons {
+	display: flex;
+	justify-content: end;
+	padding-top: 10px;
+}
+
+.buttons > span {
+	margin: 2px;
 }
