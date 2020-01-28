@@ -10,7 +10,8 @@ curl -XPUT -H 'Content-Type: application/json' "$DOCKER_URL/_snapshot/capi_backu
     "bucket": "content-api-es-snapshots",
     "region": "eu-west-1",
     "base_path": "PROD-ZEBRA-live",
-    "readonly": true
+    "readonly": true,
+    "indices": "content"
   }
 }
 EOF
