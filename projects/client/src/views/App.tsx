@@ -4,14 +4,19 @@ import {
 	InputSupper,
 	QueryElement,
 	Filter,
+	Button,
 } from '@guardian/threads';
 import React, { useState, useEffect, useCallback } from 'react';
 import { ResultsTable } from '../components/ResultsTable/ResultsTable';
 import { ResultsList } from '../components/ResultsList/ResultsList';
 import { getFilters, doSearch } from '../services/Search';
 import _ from 'lodash';
+import styles from './App.module.css';
+
+import { MdDashboard, MdList } from 'react-icons/md';
 
 export const App = () => {
+	const [mode, setMode] = useState('review' as 'review' | 'table');
 	const [elements, setElements] = useState([] as QueryElement[]);
 	const [filters, setFilters] = useState([] as Filter[]);
 	const [results, setResults] = useState([] as any[]);
@@ -40,8 +45,30 @@ export const App = () => {
 						debouncedSearch(e);
 					}}
 				/>
+				<div className={styles.controls}>
+					<Button
+						disabled={mode === 'review'}
+						icon={<MdDashboard />}
+						onClick={() => setMode('review')}
+						title="Review"
+					>
+						Review
+					</Button>
+					<Button
+						disabled={mode === 'table'}
+						icon={<MdList />}
+						title="Table"
+						onClick={() => setMode('table')}
+					>
+						Table
+					</Button>
+				</div>
 				<hr />
-				<ResultsList results={results} />
+				{mode === 'review' ? (
+					<ResultsList results={results} />
+				) : (
+					<div>table goes here</div>
+				)}
 			</CenteredPage>
 		</HeaderShell>
 	);

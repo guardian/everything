@@ -1,0 +1,9 @@
+.controls {
+	margin: var(--sp-base);
+	display: flex;
+	flex-direction: row;
+}
+
+.controls > * {
+	margin-right: var(--sp-base);
+}

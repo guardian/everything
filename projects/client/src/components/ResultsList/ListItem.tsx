@@ -7,7 +7,7 @@ type ListItemProps = {
 
 export const ListItem: FC<ListItemProps> = ({ result }) => {
 	return (
-		<div>
+		<div className={styles.item}>
 			<div>
 				{result.blocks.main &&
 				result.blocks.main.elements[0] &&
@@ -16,7 +16,9 @@ export const ListItem: FC<ListItemProps> = ({ result }) => {
 						className={styles.trailImage}
 						src={result.blocks.main.elements[0].assets[0].file}
 					/>
-				) : null}
+				) : (
+					<img className={styles.trailImage} src={'this is a broken image'} />
+				)}
 			</div>
 			<div>
 				<h3>{result.fields.headline}</h3>

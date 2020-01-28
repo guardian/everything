@@ -1,4 +1,14 @@
+.item {
+	border: var(--color-border) 1px solid;
+	border-radius: var(--radius-default);
+	margin-bottom: var(--sp-base);
+	background: var(--color-secondary-light);
+	padding: var(--sp-base);
+	box-shadow: var(--sh-card);
+}
+
 .trailImage {
 	max-width: 400px;
 	max-height: 200px;
+	box-shadow: var(--sh-normal);
 }

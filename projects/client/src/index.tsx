@@ -7,7 +7,7 @@ import { App } from './views/App';
 
 const appContext = {
 	name: 'Everything',
-	logoSvg: 'ferret.svg',
+	logoSvg: 'computer.gif',
 };
 
 export const history = createBrowserHistory();
