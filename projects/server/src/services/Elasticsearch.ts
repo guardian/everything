@@ -13,6 +13,7 @@ export class Elasticsearch {
 			index: 'content',
 			body: {
 				size: 100,
+				sort: [{ webPublicationDate: 'desc' }],
 				query: {
 					query_string: {
 						default_operator: 'AND',

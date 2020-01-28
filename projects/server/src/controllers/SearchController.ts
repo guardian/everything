@@ -27,13 +27,13 @@ export class SearchController {
 			}, '');
 			const results = await this.es.search(query);
 
-			return res.json(results).send();
+			return res.json(results);
 		},
 	];
 
 	getFilters = () => [
 		(req: Request, res: Response) => {
-			return res.json(Filters.clientFilters).send();
+			return res.json(Filters.clientFilters);
 		},
 	];
 }

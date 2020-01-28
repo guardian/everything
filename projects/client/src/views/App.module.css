@@ -1,3 +1,15 @@
+.container {
+	position: relative;
+}
+.topbit {
+	position: sticky;
+	top: 0;
+	background-color: var(--color-secondary);
+	border-bottom: var(--color-border) solid 1px;
+	margin-left: -10px;
+	margin-right: -10px;
+	padding-top: var(--sp-base);
+}
 .controls {
 	margin: var(--sp-base);
 	display: flex;

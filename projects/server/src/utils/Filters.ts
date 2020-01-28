@@ -21,19 +21,51 @@ export namespace Filters {
 			template: '(fields.newspaperPageNumber:({}))',
 		},
 		{
-			name: 'Trail Image Width',
+			// TODO make drop down
+			name: 'Top Tag',
 			type: 'text',
-			template: '(who.knows.lol:({}))',
+			template: '(leadTags:({}))',
 		},
 		{
-			name: 'Trail Image Height',
-			type: 'text',
-			template: '(who.knows.lol:({}))',
+			// TODO make drop down
+			name: 'Section',
+			type: 'select',
+			template: '(sectionId:({}))',
+			options: [
+				{ label: 'UK News', value: 'uk-news' },
+				{ label: 'Sport', value: 'sport' },
+				{ label: 'Science', value: 'science' },
+				{ label: 'Global Development', value: 'global-development' },
+			],
 		},
+		{
+			// TODO make dropdown
+			name: 'Tags',
+			type: 'text',
+			template: '(tags:({}))',
+		},
+		// {
+		// 	name: 'Trail Image Width',
+		// 	type: 'text',
+		// 	template: '(who.knows.lol:({}))',
+		// },
+		// {
+		// 	name: 'Trail Image Height',
+		// 	type: 'text',
+		// 	template: '(who.knows.lol:({}))',
+		// },
 	];
+
+	// TODO
+	// * Has tag
+	// * Top tag
+	// * Tone
+	// * Comments on
+	// * Contributor ?
 
 	export const clientFilters = allFilters.map(f => ({
 		name: f.name,
 		type: f.type,
+		options: f.options,
 	}));
 }
