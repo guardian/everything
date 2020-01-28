@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ListItem } from './ListItem';
 
-export const ResultsList = () => {
-	return <div>{/* <ListItem result={{}} /> */}</div>;
+type ResultsListProps = {
+	results: any[];
+};
+
+export const ResultsList: FC<ResultsListProps> = ({ results }) => {
+	return (
+		<div>
+			{results.map(r => (
+				<ListItem result={r} />
+			))}
+		</div>
+	);
 };

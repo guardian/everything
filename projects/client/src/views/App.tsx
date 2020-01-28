@@ -5,17 +5,24 @@ import {
 	QueryElement,
 	Filter,
 } from '@guardian/threads';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ResultsTable } from '../components/ResultsTable/ResultsTable';
 import { ResultsList } from '../components/ResultsList/ResultsList';
 import { getFilters, doSearch } from '../services/Search';
 import _ from 'lodash';
 
-const debouncedSearch = _.debounce(doSearch, 1000);
-
 export const App = () => {
 	const [elements, setElements] = useState([] as QueryElement[]);
 	const [filters, setFilters] = useState([] as Filter[]);
+	const [results, setResults] = useState([] as any[]);
+
+	const debouncedSearch = useCallback(
+		_.debounce(async (e: QueryElement[]) => {
+			const result = await doSearch(e);
+			setResults(result.hits);
+		}, 1000),
+		[]
+	);
 
 	useEffect(() => {
 		getFilters().then(f => setFilters(f));
@@ -34,7 +41,7 @@ export const App = () => {
 					}}
 				/>
 				<hr />
-				<ResultsList />
+				<ResultsList results={results} />
 			</CenteredPage>
 		</HeaderShell>
 	);

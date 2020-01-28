@@ -5,12 +5,14 @@ export const getFilters = async () => {
 	return await res.json();
 };
 
-export const doSearch = (elements: QueryElement[]) => {
-	return fetch(`/api/search`, {
+export const doSearch = async (elements: QueryElement[]) => {
+	const res = await fetch(`/api/search`, {
 		method: 'POST',
 		headers: new Headers({ 'Content-Type': 'application/json' }),
 		body: JSON.stringify({
 			elements,
 		}),
 	});
+
+	return await res.json();
 };
