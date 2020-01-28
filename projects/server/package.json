@@ -3,11 +3,12 @@
 	"version": "1.0.0",
 	"main": "src/index.ts",
 	"scripts": {
-		"start": "CONFIG_PATH=~/everything-conf ts-node-dev src/index.ts",
-		"start-prod": "CONFIG_PATH=~/everything-conf ts-node src/index.ts"
+		"start": "CONFIG_PATH=~/.config/everything ts-node-dev src/index.ts",
+		"start-prod": "CONFIG_PATH=~/.config/everything ts-node src/index.ts"
 	},
 	"dependencies": {
 		"@elastic/elasticsearch": "^7.5.0",
+		"@guardian/threads": "^0.21.36",
 		"aws-sdk": "^2.503.0",
 		"bcrypt": "^3.0.6",
 		"body-parser": "^1.19.0",

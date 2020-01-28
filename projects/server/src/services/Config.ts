@@ -28,7 +28,7 @@ export const getConfig = () => {
 
 	return {
 		app: {
-			secret: required(config, 'app_secret'),
+			//secret: required(config, 'app_secret'),
 		},
 		elasticsearch: {
 			host: required(config, 'es_host'),

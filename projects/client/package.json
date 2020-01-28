@@ -2,7 +2,6 @@
 	"name": "everything-client",
 	"version": "0.1.0",
 	"private": true,
-	"port": 80,
 	"proxy": "http://localhost:13337",
 	"dependencies": {
 		"@guardian/threads": "^0.21.36",
@@ -34,7 +33,7 @@
 		"typescript": "3.6.3"
 	},
 	"scripts": {
-		"start": "PORT=80 react-scripts start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

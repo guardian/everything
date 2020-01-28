@@ -5,18 +5,21 @@ import {
 	QueryElement,
 	Filter,
 } from '@guardian/threads';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ResultsTable } from '../components/ResultsTable/ResultsTable';
 import { ResultsList } from '../components/ResultsList/ResultsList';
+import { getFilters, doSearch } from '../services/Search';
+import _ from 'lodash';
 
-const filters = [
-	{ name: 'Contributor', type: 'text' },
-	{ name: 'Byline', type: 'text' },
-	{ name: 'Newspaper Page', type: 'text' },
-] as Filter[];
+const debouncedSearch = _.debounce(doSearch, 1000);
 
 export const App = () => {
 	const [elements, setElements] = useState([] as QueryElement[]);
+	const [filters, setFilters] = useState([] as Filter[]);
+
+	useEffect(() => {
+		getFilters().then(f => setFilters(f));
+	}, []);
 
 	return (
 		<HeaderShell withTextLogo>
@@ -25,7 +28,10 @@ export const App = () => {
 				<InputSupper
 					elements={elements}
 					availableFilters={filters}
-					onChange={setElements}
+					onChange={e => {
+						setElements(e);
+						debouncedSearch(e);
+					}}
 				/>
 				<hr />
 				<ResultsList />
