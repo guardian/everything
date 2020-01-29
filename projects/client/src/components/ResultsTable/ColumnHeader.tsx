@@ -24,7 +24,12 @@ export const ColumnHeader: FC<ColumnHeaderProps> = ({
 		<th key={column.title + index}>
 			<div className={styles.tableHeader}>
 				{index > 0 ? (
-					<div onClick={() => moveColumn(index, -1)}>⬅️</div>
+					<div
+						className={styles.emojiButton}
+						onClick={() => moveColumn(index, -1)}
+					>
+						⬅️
+					</div>
 				) : (
 					<div />
 				)}
@@ -46,10 +51,20 @@ export const ColumnHeader: FC<ColumnHeaderProps> = ({
 							</option>
 						))}
 					</select>
-					<div onClick={() => deleteColumn(index)}>🗑️</div>
+					<div
+						className={styles.emojiButton}
+						onClick={() => deleteColumn(index)}
+					>
+						🗑️
+					</div>
 				</div>
 				{index < columnCount - 1 ? (
-					<div onClick={() => moveColumn(index, 1)}>➡️️</div>
+					<div
+						className={styles.emojiButton}
+						onClick={() => moveColumn(index, 1)}
+					>
+						➡️️
+					</div>
 				) : (
 					<div />
 				)}

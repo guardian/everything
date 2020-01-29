@@ -40,19 +40,31 @@ type ResultsTableProps = {
 export const ResultsTable: FC<ResultsTableProps> = ({ results }) => {
 	const [columns, setColumns] = useState([COLUMN_ID, COLUMN_HYPERLINK]); // TODO add default columns
 
-	const renderColumn = () => {
-		return <div>CLUMN</div>;
+	const addColumn = () => {
+		setColumns(() => [...columns, COLUMN_ID]);
 	};
 
-	const moveColumn = (index: number, offset: number) => {};
+	const moveColumn = (index: number, offset: number) => {
+		const clone = [...columns];
+		const tmp = clone[index + offset];
+		clone[index + offset] = clone[index];
+		clone[index] = tmp;
+		setColumns(() => clone);
+	};
+
 	const updateColumnType = (index: number, type: ColumnDef) => {
 		const n = [...columns];
 		n[index] = type;
-		setColumns(n);
+		setColumns(() => n);
 	};
-	const deleteColumn = (index: number) => {};
+
+	const deleteColumn = (index: number) => {
+		setColumns(() => [...columns.slice(0, index), ...columns.slice(index + 1)]);
+	};
+
 	return (
 		<div className={styles.container}>
+			<Button>Copy to Clipboard</Button>
 			<Table>
 				<thead>
 					<tr>
@@ -71,6 +83,7 @@ export const ResultsTable: FC<ResultsTableProps> = ({ results }) => {
 							<Button
 								className={styles.newColumnButton}
 								icon={<MdPlaylistAdd />}
+								onClick={addColumn}
 							>
 								Add Column
 							</Button>
@@ -98,6 +111,7 @@ export const ResultsTable: FC<ResultsTableProps> = ({ results }) => {
 										)}
 									</td>
 								))}
+								<td />
 							</tr>
 						);
 					})}

@@ -1,6 +1,10 @@
 .container {
 	width: 100%;
 }
+.container > button {
+	margin-top: var(--sp-base);
+	margin-bottom: var(--sp-base);
+}
 
 .container table {
 	width: 100%;

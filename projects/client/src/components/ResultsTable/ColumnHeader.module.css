@@ -17,3 +17,7 @@
 .picker div {
 	margin-left: 12px;
 }
+
+.emojiButton {
+	cursor: pointer;
+}
