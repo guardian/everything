@@ -56,9 +56,11 @@ export type Result = {
 	tags: Tag[];
 	id: string;
 	blocks: Blocks;
+	webPublicationDate: string;
 };
 
 export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
+	const webPublicationDate = new Date(result.webPublicationDate);
 	return (
 		<div className={styles.item}>
 			<div className={styles.trailImage}>
@@ -74,6 +76,17 @@ export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
 				<div>
 					<h3>{result.fields.headline}</h3>
 					<h4>{result.fields.byline}</h4>
+					<div>
+						{webPublicationDate.toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+							hour: '2-digit',
+							minute: 'numeric',
+							hour12: false,
+						})}
+					</div>
+					<br />
 					<div
 						dangerouslySetInnerHTML={{
 							__html: result.fields.trailText as string,
