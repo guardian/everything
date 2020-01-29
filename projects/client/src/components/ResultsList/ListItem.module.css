@@ -34,6 +34,6 @@
 	padding-top: 10px;
 }
 
-.buttons > span {
+.buttons > * {
 	margin: 2px;
 }
