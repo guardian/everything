@@ -1,0 +1,12 @@
+.container {
+	width: 100%;
+}
+
+.container table {
+	width: 100%;
+}
+
+.newColumnButton {
+	margin-left: auto;
+	margin-right: auto;
+}

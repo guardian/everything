@@ -14,6 +14,7 @@ import _ from 'lodash';
 import styles from './App.module.css';
 
 import { MdDashboard, MdList, MdStayPrimaryLandscape } from 'react-icons/md';
+import { ResultsTable } from '../components/ResultsTable/ResultsTable';
 
 export const App = () => {
 	const [mode, setMode] = useState('review' as 'review' | 'table');
@@ -68,7 +69,7 @@ export const App = () => {
 					{mode === 'review' ? (
 						<ResultsList results={results} />
 					) : (
-						<div>table goes here</div>
+						<ResultsTable results={results} />
 					)}
 				</div>
 			</CenteredPage>

@@ -25,6 +25,7 @@ export class SearchController {
 					return acc + ' ' + e.value;
 				}
 			}, '');
+			console.log(query);
 			const results = await this.es.search(query);
 
 			return res.json(results);
