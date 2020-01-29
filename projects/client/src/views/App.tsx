@@ -17,7 +17,7 @@ import { MdDashboard, MdList, MdStayPrimaryLandscape } from 'react-icons/md';
 import { ResultsTable } from '../components/ResultsTable/ResultsTable';
 
 export const App = () => {
-	const [mode, setMode] = useState('review' as 'review' | 'table');
+	const [mode, setMode] = useState('review' as 'review' | 'table' | 'images');
 	const [elements, setElements] = useState([] as QueryElement[]);
 	const [filters, setFilters] = useState([] as Filter[]);
 	const [results, setResults] = useState([] as any[]);

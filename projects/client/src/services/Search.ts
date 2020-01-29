@@ -6,6 +6,7 @@ export const getFilters = async () => {
 };
 
 export const doSearch = async (elements: QueryElement[]) => {
+	console.log(elements);
 	const res = await fetch(`/api/search`, {
 		method: 'POST',
 		headers: new Headers({ 'Content-Type': 'application/json' }),
