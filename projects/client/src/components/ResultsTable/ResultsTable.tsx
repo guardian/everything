@@ -21,6 +21,16 @@ const COLUMN_NEWSPAPER_PAGE = {
 	title: 'Newspaper Page',
 };
 
+const COLUMN_WORD_COUNT = {
+	path: 'fields.wordcount',
+	title: 'Word Count',
+};
+
+const COLUMN_SECTION = {
+	path: 'sectionId',
+	title: 'Section',
+};
+
 //Special columns
 const COLUMN_HYPERLINK = { path: '>hyperlink', title: 'Hyperlink' };
 
@@ -31,6 +41,8 @@ export const AVAILABLE_COLUMNS = [
 	COLUMN_HYPERLINK,
 	COLUMN_WEB_PUBLICATION_DATE,
 	COLUMN_NEWSPAPER_PAGE,
+	COLUMN_WORD_COUNT,
+	COLUMN_SECTION,
 ];
 
 type ResultsTableProps = {
