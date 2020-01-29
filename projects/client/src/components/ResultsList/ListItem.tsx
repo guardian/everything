@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styles from './ListItem.module.css';
 import { Button } from '@guardian/threads';
 import { FaGlobeAfrica, FaEdit } from 'react-icons/fa';
+import ImageViewer from 'react-simple-image-viewer';
 
 type ListItemProps = {
 	result: Result;
@@ -61,6 +62,7 @@ export type Result = {
 
 export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
 	const webPublicationDate = new Date(result.webPublicationDate);
+	const webUrl = `https://www.theguardian.com/${result.id}`;
 	return (
 		<div className={styles.item}>
 			<div className={styles.trailImage}>
@@ -74,7 +76,9 @@ export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
 			</div>
 			<div className={styles.sideInfo}>
 				<div>
-					<h3>{result.fields.headline}</h3>
+					<a className={styles.headlineLink} href={webUrl}>
+						<h3>{result.fields.headline}</h3>
+					</a>
 					<h4>{result.fields.byline}</h4>
 					<div>
 						{webPublicationDate.toLocaleDateString('en-US', {
@@ -92,6 +96,7 @@ export const ListItem: FC<ListItemProps> = ({ result }: { result: Result }) => {
 							__html: result.fields.trailText as string,
 						}}
 					/>
+					<div>{newspaperInfo(result)}</div>
 				</div>
 				<div className={styles.buttons}>
 					<Button
@@ -121,6 +126,6 @@ const newspaperInfo = (content: Result) => {
 	const pageNumber = content.fields.newspaperPageNumber;
 
 	if (pageNumber && newspaperBook) {
-		console.log(`Appeared on page ${pageNumber} of ${newspaperBook.webTitle}`);
-	}
+		return `Appeared on page ${pageNumber} of ${newspaperBook.webTitle}`;
+	} else return '';
 };

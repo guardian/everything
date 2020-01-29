@@ -37,3 +37,8 @@
 .buttons > * {
 	margin: 2px;
 }
+
+.headlineLink {
+	text-decoration: none;
+	color: teal;
+}
