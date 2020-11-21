@@ -7,7 +7,7 @@
 		"start-prod": "CONFIG_PATH=~/.config/everything ts-node src/index.ts"
 	},
 	"dependencies": {
-		"@elastic/elasticsearch": "^7.5.0",
+		"@elastic/elasticsearch": "^7.9.1",
 		"@guardian/threads": "^0.21.36",
 		"aws-sdk": "^2.503.0",
 		"bcrypt": "^3.0.6",
