@@ -22,7 +22,7 @@
 		"passport-local": "^1.0.0",
 		"uuid": "^3.3.2",
 		"node-fetch": "^2.6.0",
-		"react-images":"^1.1.0-beta.3"
+		"react-images":"^1.1.7"
 	},
 	"devDependencies": {
 		"@types/aws-sdk": "^2.7.0",
