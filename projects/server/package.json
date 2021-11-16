@@ -9,7 +9,7 @@
 	"dependencies": {
 		"@elastic/elasticsearch": "^7.5.0",
 		"@guardian/threads": "^0.21.36",
-		"aws-sdk": "^2.503.0",
+		"aws-sdk": "^2.814.0",
 		"bcrypt": "^3.0.6",
 		"body-parser": "^1.19.0",
 		"cron-parser": "^2.13.0",
